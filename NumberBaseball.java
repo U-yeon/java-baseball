@@ -16,8 +16,9 @@ public class NumberBaseball {
 			int userNum[] = new int[3];
 			int comNum[] = new int[3];
 			boolean result=false;
+			boolean continued=true;
 			
-			while(true) {
+			while(continued) {
 				comNum=getComNum();
 				
 				while(!result) {
@@ -34,6 +35,13 @@ public class NumberBaseball {
 				
 				System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
 				System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+				
+				if(scan.nextInt() == 2) {
+					continued=false;//게임 종료
+				}
+				else {
+					result=false;
+				}
 			}
 			
 			
