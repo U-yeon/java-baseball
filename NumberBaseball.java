@@ -23,6 +23,9 @@ public class NumberBaseball {
 					System.out.print("숫자를 입력해주세요 : ");
 					
 					userNum=getUserNum();
+					
+					int strike = getStrike(comNum, userNum);
+					
 				}
 			}
 			
@@ -68,5 +71,19 @@ public class NumberBaseball {
 			userNum[2]=input%10;//1의 자리
 			
 			return userNum;
+		}
+		
+		
+		/**comNum과 userNum비교에 따른 스트라이크 카운팅 메소드*/
+		public static int getStrike(int[] comNum, int[] userNum) {
+			int strike=0;
+			for(int i=0; i<3; ++i) {
+				if(comNum[i]==userNum[i]) {
+					strike++;
+				}
+			}
+			
+			return strike;
+			
 		}
 }
