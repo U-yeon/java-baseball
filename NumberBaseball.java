@@ -15,11 +15,12 @@ public class NumberBaseball {
 		public static void main(String[] args) {
 			int userNum[] = new int[3];
 			int comNum[] = new int[3];
+			boolean result=false;
 			
 			while(true) {
 				comNum=getComNum();
 				
-				while(true) {
+				while(!result) {
 					System.out.print("숫자를 입력해주세요 : ");
 					
 					userNum=getUserNum();
@@ -27,7 +28,12 @@ public class NumberBaseball {
 					int strike = getStrike(comNum, userNum);
 					int ball = getBall(comNum, userNum);
 					
-				}
+					/**true반환 시 이 while문에서 탈출하고 축하 결과*/
+					result=printResult(strike, ball);
+					}
+				
+				System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+				System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
 			}
 			
 			
@@ -104,4 +110,29 @@ public class NumberBaseball {
 			
 			return ball;
 		}
+		
+		
+		/**결과 출력 창 메소드*/
+		public static boolean printResult(int strike, int ball) {
+			if(strike!=0) {
+				System.out.print(strike + " 스트라이크");
+			}
+			
+			if(ball!=0) {
+				System.out.print(ball+"볼");
+			}
+			
+			if(strike+ball==0) {
+				System.out.print("낫싱");
+			}
+			
+			System.out.println();
+			
+			
+			/**strike가 3일시 true반환*/
+			return (strike==3);
+
+		}
+		
+		
 }
